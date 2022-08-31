@@ -1,0 +1,44 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="lab06.css" />
+      <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+        <a href="/"><img src="logo_white.png" class="center"></a>
+        <br><br>
+        <a type="button" class="btn btn-default" href="/">Home</a>
+        <a type="button" class="btn btn-default" href="/newparcel">Add a New Parcel</a>
+        <a type="button" class="btn btn-default" href="/listparcel">List All Parcels</a>
+        <a type="button" class="btn btn-default" href="/deleteparcel">Delete a Parcel</a>
+        <a type="button" class="btn btn-default" href="/updateparcel">Update a Parcel</a>
+        <a type="button" class="btn btn-default" href="/clearparcel">Clear ALL Parcels</a>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+        <h2>Welcome to the Lab 06 - A POMS App with Mongoose</h2>
+        <h3>New Parcel Wizard</h3>
+        </div>
+        <form method="post" action="newparcel">
+            Sender: <input type="text" name="sender" required/>
+            <br>
+            Address: <input type="text" name="address" required/>
+            <br>
+            Weight: <input type="number" name="weight" step="any" min="0" required/>
+            <br>
+            Fragile: <input type="radio" name="fragile" value="True" required/>
+            <label for="True">True</label>
+            <input type="radio" name="fragile" value="False" required/>
+            <label for="False">False</label>
+            <br>
+            <label for="cars">Choose a shipment type:</label>
+            <select name="shipmentType" id="shipmentType" required>
+              <option value="Air">Air</option>
+              <option value="Sea">Sea</option>
+              <option value="Land">Land</option>
+            </select> 
+            <br>
+            Cost: <input type="number" name="cost" step="any" min="0" required/>
+            <br>
+            <button submit>Submit</button>
+          </form>
+    </body>
+</html>
