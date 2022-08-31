@@ -15,7 +15,7 @@ let post_db;
 
 const Parcel = require(path.join(__dirname, "models/parcel"));
 
-const url = "mongodb://localhost:27017/fit2095_lab06";
+const url = "mongodb://0.0.0.0:27017/fit2095_lab06";
 
 app.listen(PORT_NUMBER, () => {
     console.log(`Listening on PORT ${PORT_NUMBER}. Visit http://35.224.165.241:${PORT_NUMBER}`)
