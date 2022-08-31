@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="lab06.css" />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+        <a href="/"><img src="logo_white.png" class="center"></a>
+        <br><br>
+        <a href="/">Home</a>
+        <a type="button" class="btn btn-default" href="/">Home</a>
+        <a type="button" class="btn btn-default" href="/newparcel">Add a New Parcel</a>
+        <a type="button" class="btn btn-default" href="/listparcel">List All Parcels</a>
+        <a type="button" class="btn btn-default" href="/deleteparcel">Delete a Parcel</a>
+        <a type="button" class="btn btn-default" href="/updateparcel">Update a Parcel</a>
+        <a type="button" class="btn btn-default" href="/clearparcel">Clear ALL Parcels</a>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+        <h2>Welcome to the Lab 06 - A POMS App with Mongoose</h2>
+        <h3>Parcel List</h3>
+        </div>
+        <br>
+        <table class="table table-hover table-dark">
+            <tr>
+                <th>MongoDB ID</th>   
+                <th>Sender</th>
+                <th>Address</th>
+                <th>Weight</th>
+                <th>Fragile</th>
+                <th>Shipment Type</th>
+                <th>Cost</th>
+            </tr> 
+            <% for (let i = 0; i < post_db.length; i++){ %>
+                <tr>
+                <td>
+                    <%= post_db[i]._id %>
+                </td>
+                <td>
+                    <%= post_db[i].sender %>
+                </td>
+                <td>
+                    <%= post_db[i].address %>
+                </td>
+                <td>
+                    <%= post_db[i].weight %>
+                </td>
+                <td>
+                    <%= post_db[i].fragile %>
+                </td>
+                <td>
+                    <%= post_db[i].shipmentType %>
+                </td>
+                <td>
+                    <%= post_db[i].cost %>
+                </td>
+                <% }%>
+            </tr>
+        </table>
+    </body>
+</html>

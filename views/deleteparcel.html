@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="lab06.css" />
+        <link rel="stylesheet" href="./css/bootstrap.min.css" />
+
+        <a href="/"><img src="logo_white.png" class="center"></a>
+        <br><br>
+        <a type="button" class="btn btn-default" href="/">Home</a>
+        <a type="button" class="btn btn-default" href="/newparcel">Add a New Parcel</a>
+        <a type="button" class="btn btn-default" href="/listparcel">List All Parcels</a>
+        <a type="button" class="btn btn-default" href="/deleteparcel">Delete a Parcel</a>
+        <a type="button" class="btn btn-default" href="/updateparcel">Update a Parcel</a>
+        <a type="button" class="btn btn-default" href="/clearparcel">Clear ALL Parcels</a>
+    </head>
+    <body>
+        <div class="jumbotron text-center">
+        <h2>Welcome to the Lab 06 - A POMS App with Mongoose</h2>
+        <h3>Delete Parcel</h3>
+        </div>
+        <br>
+    <table class="table table-hover table-dark">
+        <th>
+        <h5>Delete by ID</h5>
+        <form method="post" action="deleteparcelid">
+            ID: <input type="text" name="ID" required/>
+            <button submit>Submit</button>
+        </form>
+        </th>
+        <th>
+        <h5>Delete by Sender</h5>
+        <form method="post" action="deleteparcelsender">
+            Sender: <input type="text" name="Sender" required/>
+            <button submit>Submit</button>
+        </form>
+        </th>
+        <th>
+        <h5>Delete by ID and Weight</h5>
+        <form method="post" action="deleteparcelidweight">
+            ID: <input type="text" name="ID" required/>
+            Weight: <input type="number" name="weight" step="any" min="0" required/>
+            <button submit>Submit</button>
+        </form>
+        </th>
+    </table>
+    </body>
+</html>
