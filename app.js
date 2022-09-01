@@ -160,7 +160,7 @@ app.post("/deleteparcelid", function (request, response) {
   });
 
 app.post("/deleteparcelsender", function (request, response) {
-    let deleteSenderParcelDetails = request.body;
+    var deleteSenderParcelDetails = request.body;
     Parcel.deleteMany({sender: deleteSenderParcelDetails.Sender}, function (err, doc){});
     response.redirect('/listallparcel');
 });
