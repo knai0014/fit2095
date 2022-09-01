@@ -161,7 +161,7 @@ app.post("/deleteparcelid", function (request, response) {
 
 app.post("/deleteparcelsender", function (request, response) {
     let deleteSenderParcelDetails = request.body;
-    Parcel.deleteMany({sender: deleteSenderParcelDetails.sender}, function (err, doc){});
+    Parcel.deleteMany({sender: deleteSenderParcelDetails.Sender}, function (err, doc){});
     response.redirect('/listallparcel');
 });
 
