@@ -174,7 +174,7 @@ app.post("/deleteparcelidweight", function (request, response) {
 
 app.post("/deleteparceladdress1kg", function (request, response) {
     var deleteIdAddressParcelDetails = request.body;
-    Parcel.deleteMany({ address: deleteIdAddressParcelDetails.address, weight: { $lt: 1 } }, function (err, doc){});
+    Parcel.deleteMany({ 'address': deleteIdAddressParcelDetails.address, 'weight': { $lt: 1 } }, function (err, doc){});
     response.redirect('/listallparcel');
 });
 
