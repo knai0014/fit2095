@@ -15,7 +15,7 @@ let post_db;
 
 const Parcel = require(path.join(__dirname, "models/parcel"));
 
-const url = "mongodb://localhost:27017/fit2095_lab06";
+// const url = "mongodb://localhost:27017/fit2095_lab06";
 
 app.listen(PORT_NUMBER, () => {
     console.log(`Listening on PORT ${PORT_NUMBER}. Visit http://35.224.165.241:${PORT_NUMBER}`)
@@ -40,7 +40,7 @@ app.get("/newparcel", function (request, response){
 
 app.post("/newparcel", function (request, response){
     let parcelDetails = request.body;
-    mongoose.connect(url, function (err) {
+    mongoose.connect("mongodb://localhost:27017/fit2095_lab06", function (err) {
         if (err) {
             console.log('Error in Mongoose connection');
             throw err;
@@ -73,7 +73,7 @@ app.get("/listparcel", function (request, response){
 });
 
 app.get("/listallparcel", function (request, response){
-    mongoose.connect(url, function (err) {
+    mongoose.connect("mongodb://localhost:27017/fit2095_lab06", function (err) {
         if (err) {
             console.log('Error in Mongoose connection');
             throw err;
@@ -94,7 +94,7 @@ app.post("/getallparcels", function (request, response){
 
 app.post("/getparcelsender", function (request, response){
     var getParcelSender = request.body;
-    mongoose.connect(url, function (err) {
+    mongoose.connect("mongodb://localhost:27017/fit2095_lab06", function (err) {
         if (err) {
             console.log('Error in Mongoose connection');
             throw err;
@@ -158,7 +158,7 @@ app.get("/updateparcel", function (request, response){
 
 app.post("/updateparcel", function (request, response) {
     var updateIdParcelDetails = request.body;
-    mongoose.connect(url, function (err) {
+    mongoose.connect("mongodb://localhost:27017/fit2095_lab06", function (err) {
         if (err) {
             console.log('Error in Mongoose connection');
             throw err;
