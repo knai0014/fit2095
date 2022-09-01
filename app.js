@@ -88,6 +88,8 @@ app.get("/listallparcel", function (request, response){
     });
 });
 
+
+
 app.post("/getallparcels", function (request, response){
     response.redirect("/listallparcel")
 })
@@ -105,6 +107,24 @@ app.post("/getparcelsender", function (request, response){
                 throw err;
             }
             response.render("listparcelsender.html", { post_db: data });
+        });
+    });
+})
+
+app.post("/getparcelweight5bysender", function (request, response){
+    var getParcelWeightRange = request.body;
+    mongoose.connect(url, function (err) {
+        if (err) {
+            console.log('Error in Mongoose connection');
+            throw err;
+        }
+
+        Parcel.where('weight').gte(5).where({sender: getParcelWeightRange.sender}).exec(function (err, data) {
+            if (err) {
+                console.log(err);
+                throw err;
+            }
+            response.render("listparcelweightrange.html", { post_db: data });
         });
     });
 })
@@ -149,6 +169,12 @@ app.post("/deleteparcelidweight", function (request, response) {
     var deleteIdWeightParcelDetails = request.body;
     Parcel.deleteMany({_id: deleteIdWeightParcelDetails.ID}, function (err, doc){});
     Parcel.deleteMany({sender: deleteIdWeightParcelDetails.sender}, function (err, doc){});
+    response.redirect('/listallparcel');
+});
+
+app.post("/deleteparceladdress1kg", function (request, response) {
+    var deleteIdAddressParcelDetails = request.body;
+    Parcel.deleteMany({ address: deleteIdAddressParcelDetails.address, weight: { $lt: 1 } }, function (err, doc){});
     response.redirect('/listallparcel');
 });
 
