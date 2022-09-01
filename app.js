@@ -119,7 +119,7 @@ app.post("/getparcelweight5bysender", function (request, response){
             throw err;
         }
 
-        Parcel.where('weight').gte(5).where({sender: getParcelWeightRange.sender}).exec(function (err, data) {
+        Parcel.where({'sender': getParcelWeightRange.Sender}).where('weight').gte(5).exec(function (err, data) {
             if (err) {
                 console.log(err);
                 throw err;
